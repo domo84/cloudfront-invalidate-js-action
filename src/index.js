@@ -20,7 +20,7 @@ async function main() {
 	const params = {
 		DistributionId: core.getInput("distribution_id"),
 		InvalidationBatch: {
-			CallerReference: Date.now(),
+			CallerReference: "GITHUB-ACTION-" + Date.now(),
 			Paths: {
 				Quantity: items.length,
 				Items: items
@@ -32,7 +32,7 @@ async function main() {
 
 	try {
 		const cf = new AWS.CloudFront();
-		const result = await cf.createInvalidation(params);
+		const result = await cf.createInvalidation(params).promise();
 		console.log("result", result);
 	} catch(e) {
 		console.error(e);
