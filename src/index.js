@@ -1,5 +1,5 @@
 const fs = require("fs");
-const CF = require("aws-sdk/clients/cloudfront");
+const AWS = require("aws-sdk");
 const core = require("@actions/core");
 
 // This is very vendor specific and should be abstracted away.
@@ -31,7 +31,8 @@ async function main() {
 	console.log("items", items);
 
 	try {
-		const result = await CF.createInvalidation(params);
+		const cf = new AWS.CloudFront();
+		const result = await cf.createInvalidation(params);
 		console.log("result", result);
 	} catch(e) {
 		console.error(e);
