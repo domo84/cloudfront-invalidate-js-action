@@ -17,6 +17,10 @@ function parseContents(contents)
 async function main() {
 	const contents = fs.readFileSync("./" + core.getInput("file"));
 	const items = parseContents(contents);
+	if(items.length == 0) {
+		console.log("0 files to validate", "Skipping..");
+		return;
+	}
 	const params = {
 		DistributionId: core.getInput("distribution_id"),
 		InvalidationBatch: {
