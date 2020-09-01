@@ -1,0 +1,12 @@
+name: "CloudFront invalidation"
+description: "Create CloudFront invalidation"
+inputs:
+  cloudfront_id:
+    description: "The CloudFront distribution ID"
+    required: true
+  file:
+    description: "Path to a file with a list of paths to invalidate"
+    required: true
+runs:
+  using: "node12"
+  main: "dist/index.js"

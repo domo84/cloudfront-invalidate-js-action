@@ -1,0 +1,22 @@
+{
+  "name": "cloudfront-invalidate-action",
+  "version": "1.0.0",
+  "description": "A Github action to create CloudFront invalidations",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "actions",
+    "ci",
+    "cloudfront"
+  ],
+  "author": "Magnus Hellman <magnus.hellman@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.0",
+    "@zeit/ncc": "^0.21.0",
+    "aws-sdk": "^2.610.0"
+  }
+}
