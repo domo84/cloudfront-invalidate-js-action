@@ -1,5 +1,6 @@
 const fs = require("fs");
 const CF = require("aws-sdk/clients/cloudfront");
+const core = require("@actions/core");
 
 // This is very vendor specific and should be abstracted away.
 function parseContents(contents)
@@ -31,6 +32,7 @@ async function main() {
 
 	try {
 		const result = await CF.createInvalidation(params);
+		console.log("result", result);
 	} catch(e) {
 		console.error(e);
 		core.setFailed(e.message);
